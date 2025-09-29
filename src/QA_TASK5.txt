@@ -1,0 +1,66 @@
+Here are clear, proper explanations with brief code examples for each topic:
+
+1) Inheritance in Java
+- A subclass uses extends to inherit fields and methods from a superclass. This promotes code reuse and enables polymorphism.
+- Subclasses can override methods to customize behavior.
+- Example:
+  - class Animal { void speak() { System.out.println("sound"); } }
+  - class Dog extends Animal { @Override void speak() { System.out.println("bark"); } }
+
+2) Why use the this keyword
+- Refers to the current object, helping to distinguish instance variables from parameters.
+- Can call another constructor in the same class using this(...).
+- Also used to pass the current object to methods/fields expecting it.
+- Example:
+  - class Person { private String name; Person(String name) { this.name = name; } }
+
+3) Method overriding vs overloading
+- Overriding: same method signature in a subclass; runtime polymorphism; replaces superclass behavior.
+- Overloading: same method name with different parameter lists in the same class; compile-time polymorphism.
+- Example:
+  - Overriding: class A { void greet(){} } class B extends A { @Override void greet(){} }
+  - Overloading: void print(int x); void print(String s);
+
+4) Object instantiation
+- Creating an object with new ClassName(...); invokes a constructor to initialize state.
+- Each object has its own copy of fields.
+- Example:
+  - Person p = new Person("Alice", 30);
+
+5) Single vs multiple inheritance
+- Java supports single inheritance for classes: extends only one superclass.
+- To achieve multiple inheritance, use interfaces: a class can implement many interfaces.
+- Example: class Car extends Vehicle implements Serializable, Drivable {}
+
+6) Encapsulation
+- Hides internal data by making fields private and exposing controlled access via getters/setters.
+- Protects invariants, reduces coupling, and allows validation.
+- Example:
+  - class BankAccount { private double balance; public double getBalance() { return balance; } public void setBalance(double b) { if (b >= 0) balance = b; } }
+
+7) Constructor overloading
+- Multiple constructors with different parameters provide flexible object creation.
+- Often used to set defaults or reuse initialization logic with this(...).
+- Example:
+  - class Point { Point() { this(0,0); } Point(int x, int y) { this.x = x; this.y = y; } }
+
+8) Override static methods
+- Static methods are class-level, not instance-level; they are not overridden but hidden.
+- The reference type determines which static method is accessible, not the object’s actual type.
+- Example:
+  - class A { static void show() {} } class B extends A { static void show() {} }
+  - A a = new B(); a.show(); // calls A.show()
+
+9) Runtime polymorphism
+- Method calls are resolved at runtime based on the actual object type, not the reference type.
+- Achieved via method overriding and dynamic dispatch.
+- Example:
+  - Animal a = new Dog(); a.speak(); // Dog’s speak() runs if overridden
+
+10) Class vs object
+- Class is a blueprint; object is a runtime instance created from that blueprint.
+- Many objects can be created from the same class, each with its own state.
+- Example:
+  - class Car {} Car c1 = new Car(); Car c2 = new Car(); // two objects from Car
+
+If you want, I can tailor these with your preferred depth or add more code samples.
